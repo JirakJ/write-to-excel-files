@@ -66,6 +66,7 @@ public class ExcelWriter {
         try{
             FileOutputStream fileOutputStream = new FileOutputStream("ExcelFromJava.xlsx");
             workbook.write(fileOutputStream);
+            fileOutputStream.close();
 
         } catch (IOException e) {
             e.printStackTrace();
