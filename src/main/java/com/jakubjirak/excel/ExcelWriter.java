@@ -10,6 +10,8 @@ import org.joda.time.LocalDate;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,6 +69,9 @@ public class ExcelWriter {
             FileOutputStream fileOutputStream = new FileOutputStream("ExcelFromJava.xlsx");
             workbook.write(fileOutputStream);
             fileOutputStream.close();
+
+            boolean result = Files.deleteIfExists(Path.of("ExcelFromJava.xlsx"));
+            System.out.printf("Deleted: %b%n", result);
 
         } catch (IOException e) {
             e.printStackTrace();
